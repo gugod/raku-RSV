@@ -2,7 +2,8 @@ use Test;
 use RSV;
 
 my @cases = (
-    # [[],] => blob8.new(),
+    [] => blob8.new(),
+    [[],] => blob8.new(253),
     [[Nil],] => blob8.new(254,255,253),
     [["",Nil],] => blob8.new(255,254,255,253),
     [["",Nil],["",Nil],] => blob8.new(255,254,255,253, 255,254,255,253),
