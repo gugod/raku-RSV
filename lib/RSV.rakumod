@@ -7,8 +7,29 @@ module RSV {
         blob8.new: |<< @rows.map(-> @values { [~] (|@values.map({ (.defined ?? .encode("utf-8") !! NULL) ~ EOV }), EOR) })
     }
 
-    sub from-rsv (Str $rsv) is export {
-        return []
+    sub from-rsv (blob8 $rsv) is export {
+        my $i = 0;
+        my @rows := [];
+        my @values := [];
+        for 0..$rsv.end -> $j {
+            given $rsv.subbuf($j,1) {
+                when EOV {
+                    @values.push: do given $rsv.subbuf($i..^$j) {
+                        when NULL { Nil }
+                        when Nil { "" }
+                        default { .decode("utf-8") }
+                    };
+                    $i = $j+1;
+                }
+                when EOR {
+                    @rows.push(@values);
+                    @values := [];
+                    $i = $j+1;
+                }
+            }
+        }
+
+        return @rows
     }
 }
 
