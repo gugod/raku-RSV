@@ -43,11 +43,22 @@ RSV - encoder and decoder of Rows of String Values
 
 =begin code :lang<raku>
 
-                 use RSV;
+use RSV;
 
-my $rsv = to-rsv(@array)
-                my @array = from-rsv($rsv)
+my blob8 $rsv = to-rsv(@array);
+my @array2 = from-rsv($rsv);
 
 =end code
+
+=head1 DESCRIPTION
+
+RSV is a binary format for storing simple string values. As the name suggest, it support only Rows of String Values. It is not a generic serialization framework, but more of a replacement of CSV or TSV.
+
+The C<RSV> module provide two functions: C<to-rsv> and C<from-rsv>.
+                                                                                         C<to-rsv> function is a RSV encoder that produces a blob8 value from the given input. The input must be an array, in which each element must be an array of string or null value. Or in a more concise type-annotion: C<Array[Array[String|Nil]]>
+
+=head1 REFERENCES
+
+RSV: L<https://github.com/Stenway/RSV-Specification>
 
 =end pod
