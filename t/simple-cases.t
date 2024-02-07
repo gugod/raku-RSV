@@ -40,3 +40,5 @@ for @cases {
         note "# RSV: " ~ $rsv.gist;
     }
 }
+
+done-testing;
