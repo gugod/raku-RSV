@@ -1,0 +1,22 @@
+{
+    "auth": "zef:gugod",
+    "build-depends": [
+    ],
+    "depends": [
+    ],
+    "description": "RSV encoder and decoder",
+    "authors": [
+        "Kang-min Liu"
+    ],
+    "name": "RSV",
+    "provides": {
+        "RSV": "lib/RSV.rakumod"
+    },
+    "license": "The MIT License",
+    "support": {
+        "bugtracker": "https://github.com/gugod/raku-RSV/issues",
+    },
+    "test-depends": [
+    ],
+    "version": "0.0.1"
+}
