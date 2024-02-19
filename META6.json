@@ -13,7 +13,7 @@
         "RSV": "lib/RSV.rakumod"
     },
     "resources": [],
-    "license": "The MIT License",
+    "license": "MIT",
     "support": {
         "bugtracker": "https://github.com/gugod/raku-RSV/issues"
     },
